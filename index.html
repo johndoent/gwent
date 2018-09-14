@@ -233,10 +233,15 @@ function animate() {
 
 function test () {
     
-    var geometry = new THREE.PlaneBufferGeometry( 424, 147 );
-    var plane = new THREE.Plane( new THREE.Vector3( 1, 1, 0.2 ), 3 );
-    var helper = new THREE.PlaneHelper( plane, 1, 0xffff00 );
-    scene.add( helper );
+    var geometry1 = new THREE.PlaneBufferGeometry( 424, 147 );
+    var wireframe2 = new THREE.WireframeGeometry( geometry1 );
+    var line1 = new THREE.LineSegments( wireframe1 );
+
+    line1.position.z = -25;
+    line1.position.x = 100;
+    line1.position.y = 100;
+
+    scene.add( line1 );
 
     var geometry2 = new THREE.PlaneBufferGeometry( 424, 12 );
     var wireframe2 = new THREE.WireframeGeometry( geometry2 );
