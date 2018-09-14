@@ -234,12 +234,15 @@ function animate() {
 function test () {
     
     var geometry1 = new THREE.PlaneBufferGeometry( 424, 147 );
-    var wireframe2 = new THREE.WireframeGeometry( geometry1 );
+    var wireframe1 = new THREE.WireframeGeometry( geometry1 );
     var line1 = new THREE.LineSegments( wireframe1 );
 
+    line1.material.depthTest = false;
+    line1.material.opacity = 0.9;
+    line1.material.transparent = true;
     line1.position.z = -25;
     line1.position.x = 100;
-    line1.position.y = 100;
+    line1.position.y = 147;
 
     scene.add( line1 );
 
@@ -251,6 +254,7 @@ function test () {
     line2.material.opacity = 0.9;
     line2.material.transparent = true;
     line2.position.z = -25;
+    line2.position.x = 100;
     line2.position.y = 147 + 12;
     window.line2 = line2;
     scene.add(line2);
